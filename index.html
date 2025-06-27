@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Chartage</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@simonwep/pickr/dist/themes/nano.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@simonwep/pickr"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>📊 Chartage</h1>
+
+    <textarea id="labelInput" placeholder="Enter labels (e.g. Apples, Bananas, Oranges)"></textarea>
+    <textarea id="dataInput" placeholder="Enter values (e.g. 10, 20, 30)"></textarea>
+
+    <div class="controls">
+      <label class="file-label">
+        <input type="file" id="csvInput" accept=".csv" />
+        📂 Upload CSV
+      </label>
+
+      <div class="chart-controls">
+        <label for="chartType">Chart Type:</label>
+        <select id="chartType">
+          <option value="bar">Bar</option>
+          <option value="line">Line</option>
+          <option value="pie">Pie</option>
+          <option value="doughnut">Doughnut</option>
+          <option value="radar">Radar</option>
+          <option value="polarArea">Polar Area</option>
+          <option value="scatter">Scatter</option>
+          <option value="bubble">Bubble</option>
+        </select>
+
+        <button id="generateBtn" onclick="renderChart()">Generate Chart</button>
+        <button id="colorBtn" disabled>Color</button>
+      </div>
+    </div>
+
+    <div class="canvas-wrapper">
+      <canvas id="myChart"></canvas>
+    </div>
+
+    <div class="download-buttons">
+      <button onclick="downloadChart('png')" id="downloadPng" disabled>Download PNG</button>
+      <button onclick="downloadChart('jpeg')" id="downloadJpeg" disabled>Download JPG</button>
+    </div>
+
+    <p class="instructions">💡 Click on a chart segment and then the "Color" button to change its color.</p>
+  </div>
+
+  <div id="color-picker-wrapper"></div>
+  <script src="script.js"></script>
+</body>
+</html>
